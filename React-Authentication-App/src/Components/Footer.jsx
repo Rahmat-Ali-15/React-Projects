@@ -2,13 +2,11 @@ import { BsInstagram } from "react-icons/bs"
 import { CiFacebook, CiYoutube } from "react-icons/ci"
 import { FaPinterest, FaSquareXTwitter } from "react-icons/fa6"
 import { SiPuma, SiVisa } from "react-icons/si"
-import { RiMastercardFill } from "react-icons/ri";
-import { MdPayment } from "react-icons/md";
 
 export const Footer = () => {
     return (
         <>
-            <div className="w-full bg-black text-white border border-amber-800 flex flex-col gap-6">
+            <div className="w-full bg-black text-white flex flex-col gap-6">
                 {/* Up footer */}
                 <div className="w-full pt-12 flex justify-center gap-45 [&>ul]:flex [&>ul]:flex-col [&>ul]:gap-1.5 [&>ul>li]:opacity-80">
                             <ul>
