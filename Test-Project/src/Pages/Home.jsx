@@ -1,51 +1,44 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-  GET_PRODUCT_DATA_FAILURE,
-  GET_PRODUCT_DATA_REQUEST,
-  GET_PRODUCT_DATA_SUCCESS,
-} from "../Actions/ProductAction";
 import axios from "axios";
 import { useEffect } from "react";
+
+
+import { addToCart, getProductDataFailure, getProductDataRequest, getProductDataSuccess } from "../Actions/ProductAction/ProductAction";
 
 let api = "https://bakery-shop-y90p.onrender.com/product";
 
 export const Home = () => {
-  let { isLoading, isError, productData, totalProduct } = useSelector(
-    (state) => state.product,
-  );
-  console.log("🚀 ~ totalProduct:", totalProduct);
-  console.log("🚀 ~ isError:", isError);
-  console.log("🚀 ~ isLoading:", isLoading);
+  let { isLoading, isError, productData } = useSelector(state => state.product);
   let dispatch = useDispatch();
 
   const handleProduct = async () => {
-    dispatch({ type: GET_PRODUCT_DATA_REQUEST });
+    dispatch(getProductDataRequest());
     try {
       let res = await axios.get(api);
       let productDatas = await res.data;
-      dispatch({ type: GET_PRODUCT_DATA_SUCCESS, payload: productDatas });
+      dispatch(getProductDataSuccess(productDatas));
     } catch (error) {
       console.log("🚀 ~ error:", error);
-      dispatch({ type: GET_PRODUCT_DATA_FAILURE });
+      dispatch(getProductDataFailure());
     }
   };
 
-  const handleAddToCart = () => {
-    console.log("🚀 ~ id:", productData.id);
-    // productData.id === id ? totalProduct.push(productData) : null
-    console.log("Login")    
-  }
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product))
+  };
 
   useEffect(() => {
-    handleProduct()
-  },[])
+    handleProduct();
+  }, []);
 
   return (
     <>
       {isLoading ? <h1>Loading..</h1> : null}
-      {
-        isError ? <h1 style={{textAlign: "center", marginTop: "50px"}}>Opps! Something went wrong...</h1> : null
-      }
+      {isError ? (
+        <h1 style={{ textAlign: "center", marginTop: "50px" }}>
+          Opps! Something went wrong...
+        </h1>
+      ) : null}
       <div className="card-main-container">
         {productData &&
           productData.map((el, id) => (
@@ -65,7 +58,12 @@ export const Home = () => {
               <div className="product-price">
                 <p>₹ {el.price}</p>
               </div>
-              <button className="add-to-cart" onClick={()=>handleAddToCart(el.id)}>ADD TO CART</button>
+              <button
+                className="add-to-cart"
+                onClick={() => handleAddToCart(el)}
+              >
+                ADD TO CART
+              </button>
             </div>
           ))}
       </div>
