@@ -18,3 +18,17 @@ export const getProductDataFailure = () => {
         type: ProdutAction.GET_PRODUCT_DATA_FAILURE
     }
 }
+
+export const addToCart = (payload) => {
+    return {
+        type: ProdutAction.ADD_TO_CART,
+        payload: payload
+    }
+}
+
+export const delteCartItem = (payload) => {
+    return {
+        type: ProdutAction.DELTE_CART_ITEM,
+        payload: payload
+    }
+}
