@@ -33,7 +33,8 @@ export const Home = () => {
 
   return (
     <>
-      {isLoading ? <h1>Loading..</h1> : null}
+        <h1 style={{textAlign: "center"}}>Bakery Product</h1>
+      {isLoading ? <h1 style={{textAlign: "center", marginTop: "50px"}}>Loading..</h1> : null}
       {isError ? (
         <h1 style={{ textAlign: "center", marginTop: "50px" }}>
           Opps! Something went wrong...
