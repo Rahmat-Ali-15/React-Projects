@@ -1,0 +1,96 @@
+{
+    "GearUpSports" : [
+        {
+            "img": "public/gearUp_Card/running.avif",
+            "title": "Running"
+        },
+        {
+            "img": "public/gearUp_Card/football.avif",
+            "title": "Football"
+        },
+        {
+            "img": "public/gearUp_Card/training.avif",
+            "title": "Training"
+        },
+        {
+            "img": "public/gearUp_Card/studio.avif",
+            "title": "Studio"
+        },
+        {
+            "img": "public/gearUp_Card/basketball.avif",
+            "title": "Basketball"
+        }
+    ],
+    "trending" : [
+        {
+            "img": "public/Trending/Court_Shatter_Low_Sneakers.avif",
+            "title": "Court Shatter Low Sneakers",
+            "oldPrice": "5999",
+            "newPrice": "2579",
+            "discount": "57"
+        },
+        {
+            "img": "public/Trending/Club_Kayzer_Superior_CushioningSneakers.avif",
+            "title": "Club Kayzer Superior Cushioning Sneakers",
+            "oldPrice": "5499",
+            "newPrice": "3079",
+            "discount": "44"
+        },
+        {
+            "img": "public/Trending/Skyrocket_Lite_RunningShoes.avif",
+            "title": "Skyrocket Lite Running Shoes",
+            "oldPrice": "4999",
+            "newPrice": "2949",
+            "discount": "41"
+        },
+        {
+            "img": "public/Trending/Softride_Frequence_Street_Running_Shoes.avif",
+            "title": "Softride Frequence Street Running Shoes",
+            "oldPrice": "6999",
+            "newPrice": "3499",
+            "discount": "50"
+        },
+        {
+            "img": "public/Trending/Galaxis_Pro_Men's_Running_Shoes.avif",
+            "title": "Galaxis Pro Men's Running Shoes",
+            "oldPrice": "6999",
+            "newPrice": "4339",
+            "discount": "38"
+        },
+        {
+            "img": "public/Trending/Softride_Carson_Hands_free_Sliptech_Walking_Shoes.avif",
+            "title": "Softride Carson Hands free Sliptech Walking Shoes",
+            "oldPrice": "5999",
+            "newPrice": "2459",
+            "discount": "59"
+        },
+        {
+            "img": "public/Trending/Smashic_Comfort_Casual_Sneakers.avif",
+            "title": "Smashic Comfort Casual Sneakers",
+            "oldPrice": "4499",
+            "newPrice": "2159",
+            "discount": "52"
+        },
+        {
+            "img": "public/Trending/Darter_Pro_Fade_Running_Shoes.avif",
+            "title": "Darter Pro Fade Running Shoes",
+            "oldPrice": "7999",
+            "newPrice": "5359",
+            "discount": "33"
+        },
+        {
+            "img": "public/Trending/Ferrari_Neo_Cat_2.0-Sneakers",
+            "title": "Ferrari Neo Cat 2.0 Sneakers",
+            "oldPrice": "7499",
+            "newPrice": "3519",
+            "discount": "53"
+        },
+        {
+            "img": "public/Trending/Blktop_Rider_Suede_Sneakers.avif",
+            "title": "Blktop Rider Suede Sneakers",
+            "oldPrice": "8999",
+            "newPrice": "6029",
+            "discount": "33"
+        }
+    ]
+}
