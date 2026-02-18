@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 
 export const Home = () => {
   const [gearupData, setGearupData] = useState([])
-  console.log("🚀 ~ gearupData:", gearupData);
+  const [trendingShoes, setTrendingShoew] = useState([])
   
   useEffect(() => {
     const fetchGearUpData = async() => {
       try {
-        const res = await api.get("/GearUpSports");
-        setGearupData(res.data)
+        const gearUp = await api.get("/GearUpSports");
+        const trendingShoe = await api.get("/trending")
+        setGearupData(gearUp.data)
+        setTrendingShoew(trendingShoe.data)
       } catch (error) {
         console.log("🚀 ~ error:", error);
       }
@@ -192,6 +194,29 @@ export const Home = () => {
                 <div className="h-92.5 relative">
                   <img src={el.img} alt={el.title} className="h-92.5 w-full" />
                   <h3 className="absolute bottom-2 left-3 text-white font-bold text-2xl">{el.title}</h3>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+
+      {/* Trending Shoes */}
+
+      <div className="flex flex-col gap-4">
+        <h1 className="text-2xl font-bold">TRENDING NOW</h1>
+        <div className="flex gap-2 border-3">
+          {
+            trendingShoes.map((el) => (
+              <div className="w-100">
+                <img src={el.img} alt={el.title} />
+                <div className="flex">
+                  <p>{el.title}</p>
+                  <div>
+                    <p>{el.newPrice}</p>
+                    <p>{el.oldPrice}</p>
+                  </div>
                 </div>
               </div>
             ))
