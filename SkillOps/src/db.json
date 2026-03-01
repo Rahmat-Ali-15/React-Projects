@@ -1,0 +1,46 @@
+{
+    "Course": [
+        {
+            "img": "/Imgs/CCNA-Tutorial-Page.png",
+            "course_name": "Cisco Certified Network Associate ( CCNA )",
+            "course_duration": "06 Month",
+            "course_mode": "online",
+            "batch_start": "13 June 2026"
+        },
+        {
+            "img": "/Imgs/linux.jpg",
+            "course_name": "Linux",
+            "course_duration": "06 Month",
+            "course_mode": "online",
+            "batch_start": "10 May 2026"
+        },
+        {
+            "img": "/Imgs/Infra_Services.jpg",
+            "course_name": "Infra Services",
+            "course_duration": "04 Month",
+            "course_mode": "online",
+            "batch_start": "13 April 2026"
+        },
+        {
+            "img": "/Imgs/Azure.jpg",
+            "course_name": "Azure",
+            "course_duration": "06 Month",
+            "course_mode": "online",
+            "batch_start": "13 June 2026"
+        },
+        {
+            "img": "/Imgs/Aws.webp",
+            "course_name": "Amazon Web Services ( AWS )",
+            "course_duration": "06 month",
+            "course_mode": "online",
+            "batch_start": "13 June 2026"
+        },
+        {
+            "img": "/Imgs/devops-testing.jpg",
+            "course_name": "Development and Operations ( DevOps )",
+            "course_duration": "06 month",
+            "course_mode": "online",
+            "batch_start": "13 June 2026"
+        }
+    ]
+}
