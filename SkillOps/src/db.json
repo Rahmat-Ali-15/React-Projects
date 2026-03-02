@@ -42,5 +42,26 @@
             "course_mode": "online",
             "batch_start": "13 June 2026"
         }
+    ],
+
+    "Student_Story": [
+        {
+            "img": "/Imgs/Aws.webp"
+        },
+        {
+            "img": "/Imgs/Azure.jpg"
+        },
+        {
+            "img": "/Imgs/Azure.jpg"
+        },
+        {
+            "img": "/Imgs/devops-testing.jpg"
+        },
+        {
+            "img": "/Imgs/Infra_Services.jpg"
+        },
+        {
+            "img": "/Imgs/linux.jpg"
+        }
     ]
 }
