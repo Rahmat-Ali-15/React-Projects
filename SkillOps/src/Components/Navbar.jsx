@@ -18,7 +18,7 @@ export const Navbar = () => {
           <div>Logo</div>
           <div className="flex gap-15">
             {route.map((el,id) => (
-                <NavLink className= "text-[18px]" key={id} to = {el.path} end>{el.title}</NavLink>
+                <NavLink className= "text-[18px] hover:text-red-500 transition" key={id} to = {el.path} end>{el.title}</NavLink>
             ))}
           </div>
           <div className="px-10 py-3 bg-[#ec0d14] rounded-4xl font-bold hover:bg-[#b30a10] transition">
