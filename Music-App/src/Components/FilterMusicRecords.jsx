@@ -1,19 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import data from "../../db.json";
+
+
 export const FilterMusicRecords = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log("🚀 ~ setSearchParams:", setSearchParams);
-  console.log("🚀 ~ searchParams:", searchParams);
 
-  const [filterVal, setFilterVal] = useState([]);
+  const [filterVal, setFilterVal] = useState(searchParams.getAll("genre") || []);
 
   let genre = [];
   data.albums.map((el) => {
     genre.push(el.genre);
   });
-  console.log("🚀 ~ genre:", genre);
 
   let obj = {};
 
@@ -21,7 +20,6 @@ export const FilterMusicRecords = () => {
     curr[acc] = (curr[acc] || 0) + 1;
     return curr;
   }, obj);
-  console.log("🚀 ~ obj:", obj);
 
   // for(let i = 0; i < arr.length; i++){
   //     let isGenre = arr[i]
@@ -36,7 +34,6 @@ export const FilterMusicRecords = () => {
 
   const handleFilter = (e) => {
     const option = e.target.name;
-    console.log("🚀 ~ option:", option);
 
     const newArr = [...filterVal];
 
@@ -45,9 +42,15 @@ export const FilterMusicRecords = () => {
     } else {
       newArr.push(option);
     }
-    console.log("🚀 ~ newArr:", newArr);
     setFilterVal(newArr);
   };
+
+  useEffect(() => {
+    const Params = {};
+    filterVal && (Params.genre = filterVal);
+
+    setSearchParams(Params)
+  },[filterVal, setSearchParams])
 
   return (
     <>
@@ -66,6 +69,7 @@ export const FilterMusicRecords = () => {
                 type="checkbox"
                 name={el}
                 onChange={handleFilter}
+                defaultChecked={filterVal.includes(el)}
               />
               <label>{el}</label>
             </div>
