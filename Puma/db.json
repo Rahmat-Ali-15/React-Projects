@@ -92,5 +92,55 @@
             "newPrice": "6029",
             "discount": "33"
         }
+    ],
+    "new_season_products" : [
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/New%20Season%20Product/Speedcat-Ballet-Venus-Women's-Shiny-Shoes.avif",
+            "totalColor": "2 COLORS",
+            "title": "Speedcat Ballet Venus Women's Shiny Shoes",
+            "price": "6999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/New%20Season%20Product/Speedcat-Ballet-Venus-Women's-Shiny-Shoes%20(1).avif",
+            "totalColor": "2 COLORS",
+            "title": "Speedcat Ballet Venus Women's Shiny Shoes",
+            "price": "6999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/New%20Season%20Product/Speedcat-Ballet-Women's-Leather-Shoes.avif",
+            "totalColor": "1 COLORS",
+            "title": "Speedcat Ballet Women's Leather Shoes",
+            "price": "6999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/New%20Season%20Product/H-Street-Lightweight-OG-Sneakers.avif",
+            "totalColor": "3 COLORS",
+            "title": "H-Street Lightweight OG Sneakers",
+            "price": "8999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/New%20Season%20Product/Speedcat-Ballet-Venus-Women's-Shiny-Shoes.avif",
+            "totalColor": "2 COLORS",
+            "title": "Speedcat Ballet Venus Women's Shiny Shoes",
+            "price": "6999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/New%20Season%20Product/LaFranc%C3%A9-Red-Iridescent-Sneakers.avif",
+            "totalColor": "1 COLORS",
+            "title": "LaFrance Red Iridescent Sneakers",
+            "price": "10999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/New%20Season%20Product/Speedcat-Plus-Play-Colorblock-Sneakers.avif",
+            "totalColor": "1 COLORS",
+            "title": "Speedcat Plus Play Colorblock Sneakers",
+            "price": "10999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/New%20Season%20Product/Mostro-Move-Venus-Women's-Slip-On-Sneakers.avif",
+            "totalColor": "2 COLORS",
+            "title": "Mostro Move Venus Women's Slip On Sneakers",
+            "price": "8999"
+        }
     ]
 }
