@@ -1,6 +1,24 @@
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { GoZoomIn, GoZoomOut } from "react-icons/go";
+
+import { useEffect, useState } from "react";
+import { api } from "../Api/api";
 
 export const New = () => {
+  const [newSeasonProduct, setNewSeasonProduct] = useState([]);
+
+  useEffect(() => {
+    const fetchNewSeasonData = async () => {
+      try {
+        const newSeasonData = await api.get("/new_season_products");
+        setNewSeasonProduct(newSeasonData.data);
+      } catch (error) {
+        console.log("🚀 ~ error:", error);
+      }
+    };
+    fetchNewSeasonData();
+  }, []);
+
   return (
     <>
       <main className="py-10">
@@ -72,24 +90,37 @@ export const New = () => {
           </div>
         </div>
 
-      {/* Products Card */}
-      <div>
-      {/* up part */}
-        <div>
-          <div>
-            <p>1548 PRODUCTS</p>
+        {/* Products Card */}
+        <div className="flex flex-col gap-10 p-10">
+          {/* up part */}
+          <div className="flex justify-between">
+            <div>
+              <h1 className="font-bold text-[20px]">1548 PRODUCTS</h1>
+            </div>
+            <div className="flex gap-2">
+              <GoZoomIn className="text-3xl" />
+              <GoZoomOut className="text-3xl" />
+            </div>
           </div>
-          <div>
-            <p>Zoom in</p>
-            <p>Zoom out</p>
+          {/* card part */}
+          <div className="grid grid-cols-4 gap-4">
+            {newSeasonProduct.map((el,i) => (
+              <div key={i} className="flex flex-col gap-5 cursor-pointer">
+                <img
+                  src={el.img}
+                  alt={el.title}
+                />
+                <div>
+                  <p className="text-[12px] text-[#909192]">{el.totalColor}</p>
+                  <div className="flex justify-between font-semibold mt-5">
+                    <p className="text-[15px]">{el.title}</p>
+                    <p>₹{Number(el.price).toLocaleString("en-IN")}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        {/* card part */}
-        <div>
-          
-        </div>
-      </div>
-
       </main>
     </>
   );
