@@ -13,7 +13,6 @@ import { Kids } from "../Pages/Kids";
 import { Sale } from "../Pages/Sale";
 
 export const AllRoutes = ({ fields }) => {
-  console.log("🚀 ~ fields:allroutes", fields);
   
   return (
     <>
