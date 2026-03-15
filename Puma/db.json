@@ -192,5 +192,56 @@
             "title": "Speedcat Sneakers",
             "price": "9999"
         }
+    ],
+
+    "women_product": [
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Women_Product/PUMA-x-HYROX-Deviate-NITRO%E2%84%A2-Elite-4-Women's-Running-Shoes.avif",
+            "totalColor": "1 COLOR",
+            "title": "PUMA x HYROX Deviate NITRO Elite 4 Women's Running Shoes",
+            "price": "21999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Women_Product/Deviate-NITRO%E2%84%A2-Elite-4-Women's-Running-Shoes.avif",
+            "totalColor": "1 COLOR",
+            "title": "Deviate NITRO Elite 4 Women's Running Shoes",
+            "price": "21999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Women_Product/Deviate-NITRO%E2%84%A2-4-Women's-Road-Running-Shoes.avif",
+            "totalColor": "1 COLOR",
+            "title": "Deviate NITRO Elite 4 Women's Running Shoes",
+            "price": "16999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Women_Product/Maxima-Pro-Women's-Running-Shoes.avif",
+            "totalColor": "3 COLORS",
+            "title": "Maxima Pro Women's Running Shoes",
+            "price": "7999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Women_Product/Smashic-Women's-Comfort-Casual-Sneakers.avif",
+            "totalColor": "4 COLORS",
+            "title": "Smashic Women's Comfort Casual Sneakers",
+            "price": "2024"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Women_Product/Softride-Frequence-Street-Women's-Running-Shoes.avif",
+            "totalColor": "4 COLORS",
+            "title": "Softride Frequence Street Women's Running Shoes.avif",
+            "price": "3499"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Women_Product/Speedcat-Ballet-Women's-Metallic-Shoes.avif",
+            "totalColor": "2 COLORS",
+            "title": "Speedcat Ballet Women's Metallic Shoes",
+            "price": "6999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Women_Product/Speedcat-Go-Women's-Shoes.avif",
+            "totalColor": "2 COLORS",
+            "title": "Speedcat Go Women's Shoes",
+            "price": "7999"
+        }
     ]
 }
