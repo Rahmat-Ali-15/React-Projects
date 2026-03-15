@@ -1,6 +1,26 @@
+import { useEffect, useState } from "react";
+import { api } from "../Api/api";
+
+
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { GoZoomIn, GoZoomOut } from "react-icons/go";
+
 
 export const Women = () => {
+  const [womenProducts, setWomenProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchWomenProductData = async () => {
+      try {
+        const newWomenData = await api.get("/women_product");
+        setWomenProducts(newWomenData.data);
+      } catch (error) {
+        console.log("🚀 ~ error:", error);
+      }
+    };
+    fetchWomenProductData();
+  }, []);
+
   return (
     <>
       <main className="py-10">
@@ -69,6 +89,43 @@ export const Women = () => {
                 <MdKeyboardArrowUp />
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Products Card */}
+        <div className="flex flex-col gap-10 p-10">
+          {/* up part */}
+          <div className="flex justify-between">
+            <div>
+              <h1 className="font-bold text-[20px]">
+                {womenProducts.length} PRODUCTS
+              </h1>
+            </div>
+            <div className="flex gap-2">
+              <GoZoomIn className="text-3xl" />
+              <GoZoomOut className="text-3xl" />
+            </div>
+          </div>
+          {/* card part */}
+          <div className="grid grid-cols-4 gap-4">
+            {womenProducts.map((el, i) => (
+              <div
+                key={i}
+                className="flex flex-col gap-5 cursor-pointer"
+              >
+                <img
+                  src={el.img}
+                  alt={el.title}
+                />
+                <div>
+                  <p className="text-[12px] text-[#909192]">{el.totalColor}</p>
+                  <div className="flex justify-between font-semibold mt-5">
+                    <p className="text-[15px]">{el.title}</p>
+                    <p>₹{Number(el.price).toLocaleString("en-IN")}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </main>
