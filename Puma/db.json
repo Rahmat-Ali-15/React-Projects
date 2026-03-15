@@ -142,5 +142,55 @@
             "title": "Mostro Move Venus Women's Slip On Sneakers",
             "price": "8999"
         }
+    ],
+    "men_product": [
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Men_Product/PUMA-x-RCB-2026-Men's-Official-Match-Jersey.avif",
+            "totalColor": "1 COLOR",
+            "title": "PUMA x RCB 2026 Men's Official Match Jersey",
+            "price": "5499"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Men_Product/PUMA-x-RCB-2026-Palermo-Leather-Sneakers.avif",
+            "totalColor": "2 COLORS",
+            "title": "PUMA x RCB 2026 Men's Official Match Jersey",
+            "price": "7999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Men_Product/PUMA-x-RCB-2026-Palermo-Leather-Sneakers%20(1).avif",
+            "totalColor": "2 COLORS",
+            "title": "PUMA x RCB 2026 Palermo Leather Sneakers",
+            "price": "7999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Men_Product/PUMA-x-RCB-2026-Royalcat-Comfort-Slides.avif",
+            "totalColor": "1 COLOR",
+            "title": "PUMA x RCB 2026 Royalcat Comfort Slides",
+            "price": "3499"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Men_Product/Meza-Running-Shoes.avif",
+            "totalColor": "2 COLORS",
+            "title": "Meza Running Shoes",
+            "price": "6999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Men_Product/PUMA-x-HYROX-Deviate-NITRO%E2%84%A2-Elite-4-Men's-Running-Shoes.avif",
+            "totalColor": "1 COLOR",
+            "title": "PUMA x HYROX Deviate NITRO Elite 4 Men's Running Shoes",
+            "price": "21999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Men_Product/Speedcat-Sneakers.avif",
+            "totalColor": "8 COLORS",
+            "title": "Speedcat Sneakers ",
+            "price": "9999"
+        },
+        {
+            "img": "https://raw.githubusercontent.com/Rahmat-Ali-15/React-Projects/refs/heads/main/Puma/public/Men_Product/Speedcat-Sneakers%20(1).avif",
+            "totalColor": "8 COLORS",
+            "title": "Speedcat Sneakers",
+            "price": "9999"
+        }
     ]
 }
