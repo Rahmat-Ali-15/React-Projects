@@ -1,9 +1,51 @@
+import { useEffect, useState } from "react";
+import { api } from "../Api/api";
+
+
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { GoZoomIn, GoZoomOut } from "react-icons/go";
 
 export const Sports = () => {
+  const [gearupData, setGearupData] = useState([]);
+  const [sportsProduct, setSportsProduct] = useState([]);
+
+  useEffect(() => {
+    const fetchGearUpData = async () => {
+      try {
+        const gearUp = await api.get("/GearUpSports");
+        const newMenData = await api.get("/men_product");
+        setGearupData(gearUp.data);
+        setSportsProduct(newMenData.data);
+      } catch (error) {
+        console.log("🚀 ~ error:", error);
+      }
+    };
+    fetchGearUpData();
+  }, []);
+
   return (
     <>
       <main className="py-10">
+        {/* Gear up for sports */}
+        <div className="flex flex-col gap-7 font-bold text-2xl py-10 px-8">
+          <div className="grid grid-cols-5 gap-2">
+            {gearupData.map((el) => (
+              <div key={el.id}>
+                <div className="h-92.5 relative">
+                  <img
+                    src={el.img}
+                    alt={el.title}
+                    className="h-92.5 w-full"
+                  />
+                  <h3 className="absolute bottom-2 left-3 text-white font-bold text-2xl">
+                    {el.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="px-10 h-30 flex items-center">
           <h1 className="text-3xl font-bold">SPORTS</h1>
         </div>
@@ -69,6 +111,45 @@ export const Sports = () => {
                 <MdKeyboardArrowUp />
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Products Card */}
+        <div className="flex flex-col gap-10 p-10">
+          {/* up part */}
+          <div className="flex justify-between">
+            <div>
+              <h1 className="font-bold text-[20px]">
+                {sportsProduct.length} PRODUCTS
+              </h1>
+            </div>
+            <div className="flex gap-2">
+              <GoZoomIn className="text-3xl" />
+              <GoZoomOut className="text-3xl" />
+            </div>
+          </div>
+
+
+          {/* card part */}
+          <div className="grid grid-cols-4 gap-4">
+            {sportsProduct.map((el, i) => (
+              <div
+                key={i}
+                className="flex flex-col gap-5 cursor-pointer"
+              >
+                <img
+                  src={el.img}
+                  alt={el.title}
+                />
+                <div>
+                  <p className="text-[12px] text-[#909192]">{el.totalColor}</p>
+                  <div className="flex justify-between font-semibold mt-5">
+                    <p className="text-[15px]">{el.title}</p>
+                    <p>₹{Number(el.price).toLocaleString("en-IN")}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </main>
