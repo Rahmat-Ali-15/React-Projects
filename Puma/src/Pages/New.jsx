@@ -6,7 +6,7 @@ import { api } from "../Api/api";
 
 export const New = () => {
   const [newSeasonProduct, setNewSeasonProduct] = useState([]);
-  
+
 
   useEffect(() => {
     const fetchNewSeasonData = async () => {
@@ -47,6 +47,16 @@ export const New = () => {
             </div>
             <div>
               <p>Price</p>
+              <section className="hidden ">
+                <div>
+                  <input type="radio" />
+                  <label>Price: Low to High</label>
+                </div>
+                <div>
+                  <input type="radio" />
+                  <label>Price: High to Low</label>
+                </div>
+              </section>
               <div>
                 <MdKeyboardArrowDown />
                 <MdKeyboardArrowUp />
