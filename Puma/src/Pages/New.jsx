@@ -6,6 +6,7 @@ import { api } from "../Api/api";
 
 export const New = () => {
   const [newSeasonProduct, setNewSeasonProduct] = useState([]);
+  
 
   useEffect(() => {
     const fetchNewSeasonData = async () => {
@@ -19,6 +20,7 @@ export const New = () => {
     fetchNewSeasonData();
   }, []);
 
+  console.log("🚀 ~ newSeasonProduct:", newSeasonProduct);
   return (
     <>
       <main className="py-10">
@@ -95,7 +97,7 @@ export const New = () => {
           {/* up part */}
           <div className="flex justify-between">
             <div>
-              <h1 className="font-bold text-[20px]">1548 PRODUCTS</h1>
+              <h1 className="font-bold text-[20px]">{newSeasonProduct.length} PRODUCTS</h1>
             </div>
             <div className="flex gap-2">
               <GoZoomIn className="text-3xl" />
