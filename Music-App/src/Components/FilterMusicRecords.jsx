@@ -3,23 +3,36 @@ import { useSearchParams } from "react-router-dom";
 
 import data from "../../db.json";
 
-
 export const FilterMusicRecords = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [filterVal, setFilterVal] = useState(searchParams.getAll("genre") || []);
+  const [filterVal, setFilterVal] = useState(
+    searchParams.getAll("genre") || [],
+  );
 
-  let genre = [];
-  data.albums.map((el) => {
-    genre.push(el.genre);
+  const [sort, setSort] = useState(searchParams.get("_sort") || "");
+
+  const [keys] = useState(() => {
+    return data.albums
+      .map((el) => {
+        let value = Object.values(el.genre).join("");
+        return value;
+      })
+      .reduce((acc, curr) => {
+        acc[curr] = (acc[curr] || 0) + 1;
+        return acc;
+      }, {});
   });
 
-  let obj = {};
+  //   let genre = [];
+  //   data.albums.map((el) => {
+  //     genre.push(el.genre);
+  //   });
 
-  genre.reduce((curr, acc) => {
-    curr[acc] = (curr[acc] || 0) + 1;
-    return curr;
-  }, obj);
+  //  let obj= genre.reduce((curr, acc) => {
+  //     curr[acc] = (curr[acc] || 0) + 1;
+  //     return curr;
+  //   }, {});
 
   // for(let i = 0; i < arr.length; i++){
   //     let isGenre = arr[i]
@@ -34,37 +47,48 @@ export const FilterMusicRecords = () => {
 
   const handleFilter = (e) => {
     const option = e.target.name;
+    console.log("🚀 ~ option:", option);
 
     const newArr = [...filterVal];
 
-    if (filterVal.includes(option)) {
-      newArr.splice(filterVal.indexOf(option), 1);
+    if (newArr.includes(option)) {
+      newArr.splice(newArr.indexOf(option), 1);
     } else {
       newArr.push(option);
     }
     setFilterVal(newArr);
   };
 
+  const handleSort = (e) => {
+    setSort(e.target.value);
+  };
+
   useEffect(() => {
     const Params = {};
+
     filterVal && (Params.genre = filterVal);
 
-    setSearchParams(Params)
-  },[filterVal, setSearchParams])
+    sort && (Params._sort = sort);
+
+    setSearchParams(Params);
+  }, [sort, filterVal, setSearchParams]);
+
+  console.log(filterVal);
 
   return (
     <>
       <h1>Filter</h1>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "start",
-          flexDirection: "column",
-        }}
-      >
-        {Object.keys(obj).map((el) => {
+      <div>
+        {Object.keys(keys).map((el, i) => {
           return (
-            <div key={el}>
+            <div
+              key={i + 1}
+              style={{
+                display: "flex",
+                alignItems: "start",
+                flexDirection: "column",
+              }}
+            >
               <input
                 type="checkbox"
                 name={el}
@@ -75,6 +99,28 @@ export const FilterMusicRecords = () => {
             </div>
           );
         })}
+      </div>
+
+      <h2>Sort</h2>
+      <div onChange={handleSort}>
+        <div>
+          <label>Asc</label>
+          <input
+            type="radio"
+            value="asc"
+            name="sort"
+            defaultChecked={sort.includes("asc")}
+          />
+        </div>
+        <div>
+          <label>Dsc</label>
+          <input
+            type="radio"
+            value="dsc"
+            name="sort"
+            defaultChecked={sort.includes("dsc")}
+          />
+        </div>
       </div>
     </>
   );
