@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            position: relative;
+            width: 200px;
+            height: 120px;
+            background: white;
+            border: 2px solid red;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Red layer */
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: red;
+            transform: scale(0);
+            transform-origin: bottom right;
+            /* 🔥 start from right bottom */
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+
+        /* On hover spread */
+        .card:hover::before {
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        Hover Me
+    </div>
+</body>
+
+</html>

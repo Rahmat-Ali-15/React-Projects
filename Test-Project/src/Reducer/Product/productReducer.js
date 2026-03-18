@@ -5,6 +5,7 @@ const initialState = {
   isError: false,
   productData: [],
   totalCartItem: [],
+  subTotalPrice: []
 };
 
 export const productReducer = (state = initialState, action) => {
@@ -36,7 +37,8 @@ export const productReducer = (state = initialState, action) => {
     case productAction.ADD_TO_CART:
       return{
         ...state,
-        totalCartItem: [...state.totalCartItem, action.payload]
+        totalCartItem: [...state.totalCartItem, action.payload],
+        subTotalPrice: [...state.subTotalPrice, action.payload.price]
       }
 
     // Delete item form cart
