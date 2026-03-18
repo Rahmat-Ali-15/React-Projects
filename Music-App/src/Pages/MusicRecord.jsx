@@ -1,38 +1,49 @@
 import styled from "styled-components";
 import { FilterMusicRecords } from "../Components/FilterMusicRecords";
 import { MusicAlbum } from "../Components/MusicAlbum";
+import { useSelector } from "react-redux";
 
 export const MusicRecord = () => {
-  return (
-    <Wrapper>
-      <WrapperFilterMusicRecords>
-        <FilterMusicRecords />
-      </WrapperFilterMusicRecords>
+  const isErrorFound = useSelector((store) => store.app.isError);
 
-      <WrapperMusicAlbumRecords>
-        <MusicAlbum />
-      </WrapperMusicAlbumRecords>
-    </Wrapper>
-  );
+  if (isErrorFound.msg){
+    return (
+      <div>
+        <h1>{isErrorFound.remark.name} ❌</h1>
+        <h1>{isErrorFound.remark.message} ❌</h1>
+        <h1>Please Start the Server using{''} <mark><code>npm run server</code></mark></h1>
+      </div>
+    )
+  }
+    return (
+      <Wrapper>
+        <WrapperFilterMusicRecords>
+          <FilterMusicRecords />
+        </WrapperFilterMusicRecords>
+
+        <WrapperMusicAlbumRecords>
+          <MusicAlbum />
+        </WrapperMusicAlbumRecords>
+      </Wrapper>
+    );
 };
 
 const Wrapper = styled.div`
-    border: 1px solid red;
-    display: flex;
-    justify-content: center;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
 `;
 
 const WrapperFilterMusicRecords = styled.div`
-    border: 1px solid green;
-    width: 30%;
-    height: 100%;
+  border: 1px solid green;
+  width: 30%;
+  height: 100%;
 `;
 
 const WrapperMusicAlbumRecords = styled.div`
-    border: 1px dashed pink;
-    width: 70%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
-`
-
+  border: 1px dashed pink;
+  width: 70%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+`;
