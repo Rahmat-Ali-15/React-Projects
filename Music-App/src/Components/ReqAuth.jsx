@@ -1,12 +1,18 @@
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 export const ReqAuth = ({ children }) => {
   const { isAuth } = useSelector((store) => store.auth);
-  console.log("🚀 ~ isAuth:", isAuth);
+  const location = useLocation();
 
   if (!isAuth) {
-    return <Navigate to={"/login"} />;
+    return (
+      <Navigate
+        to={"/login"}
+        state={{ from: location.pathname }}
+        replace
+      />
+    );
   }
 
   return children;
