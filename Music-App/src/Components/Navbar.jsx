@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import {removeToken} from "../Redux/Auth/actionTypes";
 
 import '../App.css'
+import { RemoveToken } from "../Redux/Auth/actionTypes";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export const Navbar = () => {
             </NavLink>
           );
         })}
-        <button onClick={() => dispatch(removeToken())}>Logout</button>
+        <button onClick={() => dispatch(RemoveToken())}>Logout</button>
     </div>
   );
 };
