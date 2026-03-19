@@ -22,7 +22,6 @@ const getMusicFailure = (payload) => {
 };
 
 export const getMusicRecords = (queryData) => (dispatch) => {
-  console.log("🚀 ~ queryData:", queryData);
   dispatch(getMusicRequest());
   axios
     .get("http://localhost:8080/albums", queryData)
