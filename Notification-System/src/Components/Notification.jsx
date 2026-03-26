@@ -5,19 +5,38 @@ export const Notification = () => {
   const dispatch = useDispatch();
   const value = useSelector((state) => state.notification);
 
-  
   return (
     <>
       <div>
         {value &&
           value.map((el) => {
             return (
-              <>
-                <h1>
+              <div
+                style={{
+                  display: "flow-root",
+                  width: "80%",
+                  margin: "auto",
+                  padding: "10px 20px",
+                  color: "white",
+                  background:
+                    el.type === "Success"
+                      ? "green"
+                      : el.type === "Error"
+                        ? "red"
+                        : "orange",
+                }}
+                key={el.id}
+              >
+                <button
+                  style={{ float: "inline-end", top: "0" }}
+                  onClick={() => dispatch(removeNotify(el.id))}
+                >
+                  X
+                </button>
+                <h1 style={{ textTransform: "capitalize" }}>
                   {el.msg} -- {el.type}
                 </h1>
-                <button onClick={() => dispatch(removeNotify(el.id))}>X</button>
-              </>
+              </div>
             );
           })}
       </div>
