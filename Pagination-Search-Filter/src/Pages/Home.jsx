@@ -1,21 +1,26 @@
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+
+import { MdKeyboardArrowDown } from "react-icons/md";
+
 import {
   getProductDataFailure,
   getProductDataRequest,
   getProductDataSuccess,
 } from "../Redux/Action.type";
-import { useEffect } from "react";
 
-let api = "https://bakery-shop-y90p.onrender.com/product?_limit=10";
+let pages = 1;
+let totalPages = null;
+
+let api = `https://bakery-shop-y90p.onrender.com/product?_limit=10&_page=${pages}`;
 
 export const Home = () => {
-  const { isLoading, isError, productData } = useSelector(
+  const { isLoading, isError, productData, errorMsg } = useSelector(
     (state) => state.product,
   );
-  console.log("🚀 ~ productData:", productData);
-  console.log("🚀 ~ isError:", isError);
-  console.log("🚀 ~ isLoading:", isLoading);
+
+  const [toggle, setToggle] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -23,12 +28,26 @@ export const Home = () => {
     dispatch(getProductDataRequest());
     try {
       let data = await axios.get(api);
+      if (!totalPages) {
+      const totalCount = Number(data.headers["x-total-count"]);
+      totalPages = Math.ceil(totalCount / 10);
+    }
       dispatch(getProductDataSuccess(data.data));
     } catch (error) {
-      dispatch(getProductDataFailure());
-      console.log("🚀 ~ error:", error);
+      dispatch(getProductDataFailure(error.message));
     }
   };
+
+  const toggleFilterDropdown = () => {
+    setToggle(!toggle);
+  };
+
+  const handlePagination = () => {
+    if(!totalPages){
+      const totalCount = productData.headers.get("X-Total-Count");
+      totalPages = Math.ceil(totalCount/5)
+    }
+  }
 
   useEffect(() => {
     fetchData();
@@ -44,8 +63,28 @@ export const Home = () => {
 
       <div className="filter-container">
         <div className="filter-content">
-          <p>Filter</p>
-          <div className="filter-drop">
+          <div
+            onClick={toggleFilterDropdown}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <p>Filter</p>
+            <MdKeyboardArrowDown />
+          </div>
+          <div className="filter-drop"
+            style= {
+              toggle
+                ? {
+                    display: "flex",
+                    flexDirection: "column",
+                  }
+                : { display: "none" }
+            }
+          >
             <div>Price: Low to High</div>
             <div>Price: High to Low</div>
           </div>
@@ -53,6 +92,13 @@ export const Home = () => {
       </div>
 
       {/* Product details */}
+
+      {isLoading && (
+        <h1 style={{ textAlign: "center", marginTop: "35px" }}>Loading...</h1>
+      )}
+      {isError && (
+        <h1 style={{ textAlign: "center", marginTop: "35px" }}>{errorMsg}</h1>
+      )}
 
       <div className="product-details-container">
         {productData &&
@@ -83,7 +129,7 @@ export const Home = () => {
           <div className="box">4</div>
           <div className="box">5</div>
         </div>
-        <button className="next-btn">Next</button>
+        <button className="next-btn" onClick={handlePagination}>Next</button>
       </div>
     </>
   );
