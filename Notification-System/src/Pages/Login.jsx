@@ -18,16 +18,16 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(form.email.length <= 0 || form.password.length <= 0){
-        dispatch(addNotify("Please fill all the field", "warning"))
+    if (form.email.length <= 0 || form.password.length <= 0) {
+      dispatch(addNotify("Please fill all the field", "warning"));
+    } else if (
+      form.email === "mdrahmatali9262@gmail.com" &&
+      form.password === "Rahmat@123"
+    ) {
+      dispatch(addNotify("Login", "Success"));
+    } else {
+      dispatch(addNotify("Login Failed", "Error"));
     }
-    else if(form.email === 'mdrahmatali9262@gmail.com' && form.password === 'Rahmat@123'){
-        dispatch(addNotify("Login", "Success"))
-    }
-    else{
-        dispatch(addNotify("Login Failed", "Error"));
-    }
-
   };
 
   return (
