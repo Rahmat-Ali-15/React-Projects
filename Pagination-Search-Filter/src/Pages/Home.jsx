@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
 import {
   getProductDataFailure,
@@ -29,9 +29,9 @@ export const Home = () => {
     try {
       let data = await axios.get(api);
       if (!totalPages) {
-      const totalCount = Number(data.headers["x-total-count"]);
-      totalPages = Math.ceil(totalCount / 10);
-    }
+        const totalCount = Number(data.headers["x-total-count"]);
+        totalPages = Math.ceil(totalCount / 10);
+      }
       dispatch(getProductDataSuccess(data.data));
     } catch (error) {
       dispatch(getProductDataFailure(error.message));
@@ -42,12 +42,17 @@ export const Home = () => {
     setToggle(!toggle);
   };
 
-  const handlePagination = () => {
-    if(!totalPages){
-      const totalCount = productData.headers.get("X-Total-Count");
-      totalPages = Math.ceil(totalCount/5)
-    }
+  const handleSorting = () => {
+    const sortedPrice = [...productData].sort((a,b)=> a.price - b.price)
+    dispatch(getProductDataSuccess(sortedPrice))
   }
+
+  const handlePagination = () => {
+    if (!totalPages) {
+      const totalCount = productData.headers.get("X-Total-Count");
+      totalPages = Math.ceil(totalCount / 5);
+    }
+  };
 
   useEffect(() => {
     fetchData();
@@ -73,10 +78,11 @@ export const Home = () => {
             }}
           >
             <p>Filter</p>
-            <MdKeyboardArrowDown />
+            {toggle ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
           </div>
-          <div className="filter-drop"
-            style= {
+          <div
+            className="filter-drop"
+            style={
               toggle
                 ? {
                     display: "flex",
@@ -85,7 +91,7 @@ export const Home = () => {
                 : { display: "none" }
             }
           >
-            <div>Price: Low to High</div>
+            <div onClick={handleSorting}>Price: Low to High</div>
             <div>Price: High to Low</div>
           </div>
         </div>
@@ -129,7 +135,12 @@ export const Home = () => {
           <div className="box">4</div>
           <div className="box">5</div>
         </div>
-        <button className="next-btn" onClick={handlePagination}>Next</button>
+        <button
+          className="next-btn"
+          onClick={handlePagination}
+        >
+          Next
+        </button>
       </div>
     </>
   );
